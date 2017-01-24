@@ -10,7 +10,7 @@ return [
     |
     */
 
-    'app_id' => env('your-app-id'),
+    'app_id' => env('PARSE_APP_ID'),
 
     /*
     |--------------------------------------------------------------------------
@@ -21,7 +21,7 @@ return [
     |
     */
 
-    'rest_key' => env('your-rest-key'),
+    'rest_key' => env('PARSE_REST_KEY'),
 
     /*
     |--------------------------------------------------------------------------
@@ -32,7 +32,7 @@ return [
     |
     */
 
-    'master_key' => env('your-master-key'),
+    'master_key' => env('PARSE_MASTER_KEY'),
 
     /*
     |--------------------------------------------------------------------------
@@ -43,7 +43,7 @@ return [
     |
     */
 
-    'server_url' => env('https://api.parse.com/'),
+    'server_url' => env('PARSE_SERVER_URL', 'http://127.0.0.1:1337'),
 
     /*
     |--------------------------------------------------------------------------
@@ -54,6 +54,6 @@ return [
     |
     */
 
-    'mount_path' => env('1')
+    'mount_path' => env('PARSE_MOUNT_PATH', '/parse')
 
 ];
