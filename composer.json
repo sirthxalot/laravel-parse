@@ -1,0 +1,27 @@
+{
+    "name": "sirthxalot/laravel-parse",
+    "description": "A Parse-SDK bridge for Laravel applications.",
+    "keywords": ["laravel", "framework", "parse", "parse-sdk", "parse sdk", "ParseSDK", "parse bridge", "parse sdk bridge", "bridge", "laravel parse", "laravel-parse"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name":     "Alexander Bösch",
+            "email":    "sirthxalot.dev@gmail.com",
+            "homepage": "http://sirthxalot.com",
+            "role":     "Owner, Developer"
+        }
+    ],
+    "require": {
+        "php": ">=5.6.4",
+        "laravel/framework": "^5.3",
+        "parse/php-sdk": "^1.2.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "Sirthxalot\\Parse\\": "src/Sirthxalot/Parse"
+        }
+    },
+    "config": {
+        "preferred-install": "dist"
+    }
+}

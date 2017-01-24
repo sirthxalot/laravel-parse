@@ -1,0 +1,16 @@
+# ===================================================================================
+# Git-Ignore
+#
+# @see https://git-scm.com/docs/gitignore
+# ===================================================================================
+
+# IntelliJ project files
+
+*.iml
+.idea/
+gen/
+out/
+
+# Vendors and third party modules
+
+vendor/
