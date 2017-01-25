@@ -30,7 +30,7 @@ class SessionStorage implements ParseStorageInterface
      */
     public function set($key, $value)
     {
-        Session::set($key, $value);
+        Session([$key => $value]);
     }
 
 

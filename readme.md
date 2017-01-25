@@ -1,7 +1,13 @@
 Laravel-Parse
 ================================================================================
 
-[Laravel-Parse](](https://github.com/sirthxalot/laravel-parse)) provides an Eloquent
+[![Chat](https://img.shields.io/badge/chat-join-orange.svg)](https://sirthxalot.slack.com/messages/laravel-parse/)
+[![Read the doc](https://img.shields.io/badge/documentation-read-blue.svg)](https://www.gitbook.com/read/book/sirthxalot/laravel-parse)
+[![GitHub issues](https://img.shields.io/github/issues/sirthxalot/laravel-parse.svg)](https://github.com/sirthxalot/laravel-parse/issues)
+[![GitHub forks](https://img.shields.io/github/forks/sirthxalot/laravel-parse.svg?style=social&label=Fork&maxAge=2592000)](https://github.com/sirthxalot/laravel-parse)
+[![GitHub stars](https://img.shields.io/github/stars/sirthxalot/laravel-parse.svg?style=social&label=Star&maxAge=2592000)](https://github.com/sirthxalot/laravel-parse)
+
+[Laravel-Parse](https://github.com/sirthxalot/laravel-parse) provides an Eloquent
 way to use the [Parse-SDK](https://parse.com/) within your [Laravel](https://laravel.com/)
 application. It takes the yawn out of writing queries, by using the good old Eloquent
 and Collection features. Couple your application with Parse and enjoy all the goodies,
@@ -31,7 +37,7 @@ composer require sirthxalot/laravel-parse
 
 ### Step-02: Service Provider
 
-Open `config/app.php`, and add a new item to the providers array:
+Open `config/app.php`, and add a new item to the `providers` array:
 
 ```php
 'providers' => [
@@ -43,7 +49,7 @@ Open `config/app.php`, and add a new item to the providers array:
 
 This will bootstrap the Laravel-Parse package into your Laravel application.
 
-### Step-03: Publish Configuration
+### Step-03: Publish Configuration (Optional)
 
 You can pull the default configuration file into your application by executing
 the following artisan command:
@@ -64,10 +70,10 @@ PARSE_APP_ID="your-app-id"
 PARSE_REST_KEY="your-rest-key"
 PARSE_MASTER_KEY="your-master-key"
 PARSE_SERVER_URL="https://api.parse.com/"
-PARSE_MOUNT_PATH=1
+PARSE_MOUNT_PATH="/parse"
 ```
 
-> All these credentials can be found within your **Parse dashboard**.
+You will find your credentials within your **Parse dashboard**.
 
 
 ## Need Further Help

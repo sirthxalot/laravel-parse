@@ -108,7 +108,11 @@ abstract class BaseProvider implements UserProvider
 
         $username = $this->getUsernameFromCredentials($credentials);
 
-        return $class::query(true)->where([ 'username' => $username ])->first();
+        $user = $class::query(true)->where([ 'username' => $username ])->first();
+
+        if ($user != false):
+            return $user;
+        endif;
     }
 
 
