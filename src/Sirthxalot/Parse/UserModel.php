@@ -17,13 +17,12 @@ use Parse\ParseUser;
 class UserModel extends ObjectModel
 {
     /**
-     * Parse User Class Name
+     * Parse Class Name
      *
      * @var string $parseClassName
-     * A string that determine the class name (table), used for Parse users.
+     * A string that determine the class name used in Parse.
      */
     protected static $parseClassName = '_User';
-
 
     /**
      * Static Parse User Methods
@@ -38,17 +37,15 @@ class UserModel extends ObjectModel
         'become'
     ];
 
-
     /**
      * Handles new instances.
      *
      * @param ParseUser|array $data
      * A mixed value of data to proceed.
      *
-     * @param string|null     $useMasterKey
-     * A string that determine the custom user key. If no
-     * key has been set than it will stick to the default
-     * (`null`).
+     * @param boolean|null    $useMasterKey
+     * A boolean that determine whether to use the master key
+     * (`true`) or not (`false`).
      *
      * @throws Exception
      * An exception will be thrown if wrong arguments has
@@ -59,7 +56,7 @@ class UserModel extends ObjectModel
         if ($data != null && ! $data instanceof ParseUser && ! is_array($data)):
             $type = is_object($data) ? get_class($data) : gettype($data);
 
-            $exceptionMessage = "Either a ParseUser or an array must be passed to instantiate a UserModel, %s passed";
+            $exceptionMessage = "Whether a `ParseUser` or an array must be passed to instantiate a `UserModel`, %s passed";
             throw new Exception(sprintf($exceptionMessage, $type));
         endif;
 
@@ -75,7 +72,6 @@ class UserModel extends ObjectModel
 
         $this->useMasterKey = $useMasterKey !== null ? $useMasterKey : static::$defaultUseMasterKey;
     }
-
 
     /**
      * Handles static method calls.
@@ -100,17 +96,15 @@ class UserModel extends ObjectModel
         return parent::__callStatic($method, $params);
     }
 
-
     /**
-     * Sign up a new `ParseUser`.
+     * Create (sign up) a new user.
      *
-     * @param array|\Parse\ParseObject $data
+     * @param \Parse\ParseObject|array $data
      * A mixed value that contain the data used for signing up.
      *
-     * @param string|null     $useMasterKey
-     * A string that determine the custom user key. If no
-     * key has been set than it will stick to the default
-     * (`null`).
+     * @param boolean|null             $useMasterKey
+     * A boolean that determine whether to use the master key
+     * (`true`) or not (`false`).
      *
      * @return static
      */

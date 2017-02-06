@@ -25,7 +25,6 @@ class HasMany extends RelationWithQuery
      */
     protected $foreignKey;
 
-
     /**
      * Handles new instances.
      *
@@ -45,7 +44,6 @@ class HasMany extends RelationWithQuery
         parent::__construct($query, $parentObject);
     }
 
-
     /**
      * Add constraints for the has many relationship.
      */
@@ -53,7 +51,6 @@ class HasMany extends RelationWithQuery
     {
         $this->query->where($this->foreignKey, $this->parentObject);
     }
-
 
     /**
      * Get the results for the has many relationship.
@@ -64,7 +61,6 @@ class HasMany extends RelationWithQuery
     {
         return $this->query->get();
     }
-
 
     /**
      * Create a new child object, and relate it to this.
@@ -82,7 +78,6 @@ class HasMany extends RelationWithQuery
 
         return $this->save($model);
     }
-
 
     /**
      * Relate other object to this object.

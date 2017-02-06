@@ -25,7 +25,6 @@ class BelongsToMany extends Relation
      */
     protected $embeddedClass;
 
-
     /**
      * Parent Object
      *
@@ -33,7 +32,6 @@ class BelongsToMany extends Relation
      * An instance of the parse object model.
      */
     protected $parentObject;
-
 
     /**
      * Key Name
@@ -43,7 +41,6 @@ class BelongsToMany extends Relation
      */
     protected $keyName;
 
-
     /**
      * Collection
      *
@@ -52,7 +49,6 @@ class BelongsToMany extends Relation
      */
     protected $collection;
 
-
     /**
      * Children in Queue
      *
@@ -60,7 +56,6 @@ class BelongsToMany extends Relation
      * An array that consist of the child classes in queue.
      */
     protected $childrenQueue = [];
-
 
     /**
      * Handles new instances.
@@ -84,7 +79,6 @@ class BelongsToMany extends Relation
         $this->createItems();
     }
 
-
     /**
      * Create the items from embedded classes.
      */
@@ -100,7 +94,6 @@ class BelongsToMany extends Relation
             endforeach;
         endif;
     }
-
 
     /**
      * Handles static method calls.
@@ -125,7 +118,6 @@ class BelongsToMany extends Relation
         return $return;
     }
 
-
     /**
      * Get the relationship results.
      *
@@ -135,7 +127,6 @@ class BelongsToMany extends Relation
     {
         return $this->collection;
     }
-
 
     /**
      * Save one or more parents to this relation.
@@ -168,7 +159,6 @@ class BelongsToMany extends Relation
 
         $this->parentObject->save();
     }
-
 
     /**
      * Add an item to the relation.

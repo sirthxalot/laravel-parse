@@ -24,7 +24,6 @@ class BelongsTo extends Relation
      */
     protected $embeddedClass;
 
-
     /**
      * Key Name
      *
@@ -33,7 +32,6 @@ class BelongsTo extends Relation
      */
     protected $keyName;
 
-
     /**
      * Child Object
      *
@@ -41,7 +39,6 @@ class BelongsTo extends Relation
      * An `ObjectModel` instance.
      */
     protected $childObject;
-
 
     /**
      * Handles new instances.
@@ -61,7 +58,6 @@ class BelongsTo extends Relation
         $this->childObject = $childObject;
         $this->keyName = $keyName;
     }
-
 
     /**
      * Get the relationship results.

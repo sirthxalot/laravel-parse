@@ -38,14 +38,12 @@ abstract class ObjectModel implements Arrayable, Jsonable, JsonSerializable
      */
     protected static $parseClassName;
 
-
     /**
      * Has Been Fetched Property
      *
      * @var \ReflectionProperty
      */
     protected static $hasBeenFetchedProp;
-
 
     /**
      * Default Master Key
@@ -58,7 +56,6 @@ abstract class ObjectModel implements Arrayable, Jsonable, JsonSerializable
      */
     protected static $defaultUseMasterKey = false;
 
-
     /**
      * Parse Object Instance
      *
@@ -66,7 +63,6 @@ abstract class ObjectModel implements Arrayable, Jsonable, JsonSerializable
      * An instance of the parse object.
      */
     protected $parseObject;
-
 
     /**
      * Object Model Relations
@@ -76,7 +72,6 @@ abstract class ObjectModel implements Arrayable, Jsonable, JsonSerializable
      */
     protected $relations = [];
 
-
     /**
      * Use master key?
      *
@@ -85,7 +80,6 @@ abstract class ObjectModel implements Arrayable, Jsonable, JsonSerializable
      * not (true).
      */
     protected $useMasterKey;
-
 
     /**
      * Handles new instances.
@@ -112,7 +106,6 @@ abstract class ObjectModel implements Arrayable, Jsonable, JsonSerializable
         $this->useMasterKey = $useMasterKey !== null ? $useMasterKey : static::$defaultUseMasterKey;
     }
 
-
     /**
      * Get the parse class name.
      *
@@ -123,7 +116,6 @@ abstract class ObjectModel implements Arrayable, Jsonable, JsonSerializable
         return static::$parseClassName ?: static::shortName();
     }
 
-
     /**
      * Shorten namespace down to class name.
      *
@@ -133,7 +125,6 @@ abstract class ObjectModel implements Arrayable, Jsonable, JsonSerializable
     {
         return substr(static::class, strrpos(static::class, '\\') + 1);
     }
-
 
     /**
      * Fill the object model with data.
@@ -151,7 +142,6 @@ abstract class ObjectModel implements Arrayable, Jsonable, JsonSerializable
 
         return $this;
     }
-
 
     /**
      * Set Parse-ACL.
@@ -186,7 +176,6 @@ abstract class ObjectModel implements Arrayable, Jsonable, JsonSerializable
         return $this;
     }
 
-
     /**
      * Create a new `ObjectModel`.
      *
@@ -213,7 +202,6 @@ abstract class ObjectModel implements Arrayable, Jsonable, JsonSerializable
         return $model;
     }
 
-
     /**
      * Save the `ObjectModel`.
      */
@@ -221,7 +209,6 @@ abstract class ObjectModel implements Arrayable, Jsonable, JsonSerializable
     {
         $this->parseObject->save($this->useMasterKey);
     }
-
 
     /**
      * Set the current pointer for `ObjectModel`.
@@ -237,7 +224,6 @@ abstract class ObjectModel implements Arrayable, Jsonable, JsonSerializable
 
         return new static($pointer);
     }
-
 
     /**
      * Fetch all data from `ObjectModel`.
@@ -257,7 +243,6 @@ abstract class ObjectModel implements Arrayable, Jsonable, JsonSerializable
         return static::query($useMasterKey)->get();
     }
 
-
     /**
      * Query the `ObjectModel`.
      *
@@ -276,7 +261,6 @@ abstract class ObjectModel implements Arrayable, Jsonable, JsonSerializable
         return new Query(static::parseClassName(), static::class, $useMasterKey);
     }
 
-
     /**
      * Set default usage for master key.
      *
@@ -292,7 +276,6 @@ abstract class ObjectModel implements Arrayable, Jsonable, JsonSerializable
     {
         self::$defaultUseMasterKey = (bool) $value;
     }
-
 
     /**
      * Handles static method calls.
@@ -313,7 +296,6 @@ abstract class ObjectModel implements Arrayable, Jsonable, JsonSerializable
         return call_user_func_array([ $query, $method ], $params);
     }
 
-
     /**
      * Get the `ObjectModel` from key.
      *
@@ -326,7 +308,6 @@ abstract class ObjectModel implements Arrayable, Jsonable, JsonSerializable
     {
         return $this->get($key);
     }
-
 
     /**
      * Set a value to `ObjectModel`.
@@ -343,7 +324,6 @@ abstract class ObjectModel implements Arrayable, Jsonable, JsonSerializable
     {
         return $this->set($key, $value);
     }
-
 
     /**
      * Get the `ObjectModel` ACL.
@@ -368,7 +348,6 @@ abstract class ObjectModel implements Arrayable, Jsonable, JsonSerializable
         return $value;
     }
 
-
     /**
      * Get the object model id.
      *
@@ -378,7 +357,6 @@ abstract class ObjectModel implements Arrayable, Jsonable, JsonSerializable
     {
         return $this->parseObject->getObjectId();
     }
-
 
     /**
      * Check if object is a relation.
@@ -392,7 +370,6 @@ abstract class ObjectModel implements Arrayable, Jsonable, JsonSerializable
     {
         return method_exists($this, $name);
     }
-
 
     /**
      * Get the values from the object model relation.
@@ -413,7 +390,6 @@ abstract class ObjectModel implements Arrayable, Jsonable, JsonSerializable
         endif;
     }
 
-
     /**
      * Check if relation has been loaded.
      *
@@ -426,7 +402,6 @@ abstract class ObjectModel implements Arrayable, Jsonable, JsonSerializable
     {
         return array_key_exists($key, $this->relations);
     }
-
 
     /**
      * Get the relationship from the method.
@@ -452,7 +427,6 @@ abstract class ObjectModel implements Arrayable, Jsonable, JsonSerializable
         return $results;
     }
 
-
     /**
      * Set a relationship for `ObjectModel`.
      *
@@ -471,7 +445,6 @@ abstract class ObjectModel implements Arrayable, Jsonable, JsonSerializable
         return $this;
     }
 
-
     /**
      * Check if object exists.
      *
@@ -484,7 +457,6 @@ abstract class ObjectModel implements Arrayable, Jsonable, JsonSerializable
     {
         return $this->parseObject->has($key);
     }
-
 
     /**
      * Handles static method calls.
@@ -509,7 +481,6 @@ abstract class ObjectModel implements Arrayable, Jsonable, JsonSerializable
         return $return;
     }
 
-
     /**
      * Clones an instance.
      *
@@ -522,7 +493,6 @@ abstract class ObjectModel implements Arrayable, Jsonable, JsonSerializable
     {
         $this->parseObject = clone $this->parseObject;
     }
-
 
     /**
      * Use the parse master key.
@@ -539,7 +509,6 @@ abstract class ObjectModel implements Arrayable, Jsonable, JsonSerializable
         return $this;
     }
 
-
     /**
      * This will delete the object from the database. To delete a key,
      * use `removeKey()`.
@@ -550,7 +519,6 @@ abstract class ObjectModel implements Arrayable, Jsonable, JsonSerializable
     {
         $this->parseObject->destroy($this->useMasterKey);
     }
-
 
     /**
      * Remove an object model key.
@@ -567,7 +535,6 @@ abstract class ObjectModel implements Arrayable, Jsonable, JsonSerializable
         return $this;
     }
 
-
     /**
      * Update the model object.
      *
@@ -578,7 +545,6 @@ abstract class ObjectModel implements Arrayable, Jsonable, JsonSerializable
     {
         $this->fill($data)->save();
     }
-
 
     /**
      * Decrement the object key.
@@ -595,7 +561,6 @@ abstract class ObjectModel implements Arrayable, Jsonable, JsonSerializable
     {
         return $this->increment($key, $amount * -1);
     }
-
 
     /**
      * Increment the object key
@@ -614,7 +579,6 @@ abstract class ObjectModel implements Arrayable, Jsonable, JsonSerializable
 
         return $this;
     }
-
 
     /**
      * Add a value to `ObjectModel`.
@@ -641,7 +605,6 @@ abstract class ObjectModel implements Arrayable, Jsonable, JsonSerializable
         return $this;
     }
 
-
     /**
      * Add a unique value to `ObjectModel`.
      *
@@ -664,7 +627,6 @@ abstract class ObjectModel implements Arrayable, Jsonable, JsonSerializable
         return $this;
     }
 
-
     /**
      * Fetch a `ModelObject`.
      *
@@ -682,7 +644,6 @@ abstract class ObjectModel implements Arrayable, Jsonable, JsonSerializable
         return $this;
     }
 
-
     /**
      * Check if an object has been fetched.
      *
@@ -698,7 +659,6 @@ abstract class ObjectModel implements Arrayable, Jsonable, JsonSerializable
         return self::$hasBeenFetchedProp->getValue($this->parseObject);
     }
 
-
     /**
      * Translate values into json.
      *
@@ -712,7 +672,6 @@ abstract class ObjectModel implements Arrayable, Jsonable, JsonSerializable
         return json_encode($this->jsonSerialize(), $options);
     }
 
-
     /**
      * Serialize the json.
      *
@@ -722,7 +681,6 @@ abstract class ObjectModel implements Arrayable, Jsonable, JsonSerializable
     {
         return $this->toArray();
     }
-
 
     /**
      * Translate values into an array.
@@ -753,7 +711,6 @@ abstract class ObjectModel implements Arrayable, Jsonable, JsonSerializable
 
         return $array;
     }
-
 
     /**
      * Translate any `ParseObject` to an array.
@@ -799,7 +756,6 @@ abstract class ObjectModel implements Arrayable, Jsonable, JsonSerializable
         return $array;
     }
 
-
     /**
      * Formats a `DateTime` object the way it is returned from Parse Server.
      *
@@ -814,7 +770,6 @@ abstract class ObjectModel implements Arrayable, Jsonable, JsonSerializable
         return $date->format('Y-m-d\TH:i:s.'.substr($date->format('u'), 0, 3).'\Z');
     }
 
-
     /**
      * Get the `ParseObject` for the `ObjectModel`.
      *
@@ -824,7 +779,6 @@ abstract class ObjectModel implements Arrayable, Jsonable, JsonSerializable
     {
         return $this->parseObject;
     }
-
 
     /**
      * Get the `ObjectModel` relationship from key.
@@ -839,7 +793,6 @@ abstract class ObjectModel implements Arrayable, Jsonable, JsonSerializable
         return $this->relations[$key];
     }
 
-
     /**
      * Check if object has any relationships.
      *
@@ -852,7 +805,6 @@ abstract class ObjectModel implements Arrayable, Jsonable, JsonSerializable
     {
         return isset($this->relations[$key]);
     }
-
 
     /**
      * Set belongs to many relationship.
@@ -873,7 +825,6 @@ abstract class ObjectModel implements Arrayable, Jsonable, JsonSerializable
         return new BelongsToMany($otherClass, $key, $this);
     }
 
-
     /**
      * Get the function name of the caller.
      *
@@ -883,7 +834,6 @@ abstract class ObjectModel implements Arrayable, Jsonable, JsonSerializable
     {
         return debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS, 3)[2]['function'];
     }
-
 
     /**
      * Set belongs to relationship.
@@ -905,7 +855,6 @@ abstract class ObjectModel implements Arrayable, Jsonable, JsonSerializable
         return new BelongsTo($otherClass, $key, $this);
     }
 
-
     /**
      * Set the has many relationship.
      *
@@ -925,7 +874,6 @@ abstract class ObjectModel implements Arrayable, Jsonable, JsonSerializable
 
         return new HasMany($otherClass::query(), $this, $key);
     }
-
 
     /**
      * Set the has many array relationship.

@@ -24,7 +24,6 @@ class ModelMakeCommand extends GeneratorCommand
      */
     protected $name = 'parse:model';
 
-
     /**
      * Command Description
      *
@@ -33,7 +32,6 @@ class ModelMakeCommand extends GeneratorCommand
      */
     protected $description = 'Create a new model for Parse usage.';
 
-
     /**
      * Command Type
      *
@@ -41,7 +39,6 @@ class ModelMakeCommand extends GeneratorCommand
      * A string that determine the type for the console command.
      */
     protected $type = 'ObjectModel';
-
 
     /**
      * Get the stub file for the generator.

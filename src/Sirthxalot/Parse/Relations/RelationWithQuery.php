@@ -16,6 +16,8 @@ use Sirthxalot\Parse\ObjectModel;
  */
 abstract class RelationWithQuery extends Relation
 {
+    abstract protected function addConstraints();
+
     /**
      * Query
      *
@@ -24,7 +26,6 @@ abstract class RelationWithQuery extends Relation
      */
     protected $query;
 
-
     /**
      * Parent Object
      *
@@ -32,7 +33,6 @@ abstract class RelationWithQuery extends Relation
      * A object model instance.
      */
     protected $parentObject;
-
 
     /**
      * Handles new instances.
@@ -52,10 +52,6 @@ abstract class RelationWithQuery extends Relation
 
         $this->addConstraints();
     }
-
-
-    abstract protected function addConstraints();
-
 
     /**
      * Handles static method calls.

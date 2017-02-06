@@ -26,7 +26,6 @@ abstract class BaseProvider implements UserProvider
      */
     protected $userClass;
 
-
     /**
      * Handles new instances.
      *
@@ -37,7 +36,6 @@ abstract class BaseProvider implements UserProvider
     {
         $this->userClass = $userClass;
     }
-
 
     /**
      * Retrieve a user by their unique identifier.
@@ -52,7 +50,6 @@ abstract class BaseProvider implements UserProvider
 
         return $class::query(true)->find($identifier) ?: null;
     }
-
 
     /**
      * Retrieve a user by their unique identifier and `remember me` token.
@@ -75,7 +72,6 @@ abstract class BaseProvider implements UserProvider
         ])->first();
     }
 
-
     /**
      * Update the `remember me` token for the given user in storage.
      *
@@ -91,7 +87,6 @@ abstract class BaseProvider implements UserProvider
     {
         $user->update([ 'rememberToken' => $token ], true);
     }
-
 
     /**
      * Retrieve a user from the given credentials.
@@ -114,7 +109,6 @@ abstract class BaseProvider implements UserProvider
             return $user;
         endif;
     }
-
 
     /**
      * Get the username from the given credentials.
@@ -140,7 +134,6 @@ abstract class BaseProvider implements UserProvider
         return $username;
     }
 
-
     /**
      * Validate the user with the given credentials.
      *
@@ -156,7 +149,6 @@ abstract class BaseProvider implements UserProvider
     {
         return $this->validatePassword($user, $credentials);
     }
-
 
     /**
      * Validate a password against the given credentials.

@@ -8,12 +8,12 @@ use Illuminate\Support\Collection;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 
 /**
- * Query Class
+ * Query Builder
  * ==================================================================================
  *
- * A class that translates Parse queries into Laravel friendly (Eloquent) queries and
- * reversed. It contain many helpful methods to translate queries and couple your Laravel
- * application together with your Parse driver.
+ * A class that translates Parse queries into Laravel friendly (Eloquent) queries
+ * and reversed. It contain many helpful methods to translate queries and couple
+ * your Laravel application together with your Parse driver.
  *
  * @package   Sirthxalot\Parse
  * @author    Alexander Bösch (<sirthxalot.dev@gmail.com>)
@@ -38,7 +38,6 @@ class Query
         'in' => 'containedIn',
     ];
 
-
     /**
      * Included Keys
      *
@@ -47,15 +46,13 @@ class Query
      */
     protected $includeKeys = [];
 
-
     /**
      * Parse Query
      *
      * @var ParseQuery $parseQuery
-     * A parse query that determine the current query.
+     * A parse query object that determine the current query.
      */
     protected $parseQuery;
-
 
     /**
      * Full Class Name
@@ -65,7 +62,6 @@ class Query
      */
     protected $fullClassName;
 
-
     /**
      * Parse Class Name
      *
@@ -74,16 +70,14 @@ class Query
      */
     protected $parseClassName;
 
-
     /**
      * Custom Master Key Usage
      *
-     * @param bool|null $useMasterKey
-     * A boolean that determine, whether if a custom master
-     * key should be used (`true`) or not (`false`).
+     * @param boolean|null $useMasterKey
+     * A boolean that determine whether to use the master key
+     * (`true`) or not (`false`).
      */
     protected $useMasterKey;
-
 
     /**
      * Handles new instances.
@@ -95,9 +89,9 @@ class Query
      * A string that determine the full class name (including
      * namespace).
      *
-     * @param bool $useMasterKey
-     * A boolean that determine, whether if a custom master
-     * key should be used (`true`) or not (`false`).
+     * @param boolean $useMasterKey
+     * A boolean that determine whether to use the master key
+     * (`true`) or not (`false`).
      */
     public function __construct($parseClassName, $fullClassName, $useMasterKey = false)
     {
@@ -106,7 +100,6 @@ class Query
         $this->fullClassName = $fullClassName;
         $this->useMasterKey = $useMasterKey;
     }
-
 
     /**
      * Handles static method calls.
@@ -131,26 +124,25 @@ class Query
         return $return;
     }
 
-
     /**
      * Clones an instance.
      *
-     * When an object is cloned, PHP will perform a shallow
-     * copy of all of the object's properties. Any properties
-     * that are references to other variables will remain
-     * references.
+     * When an object is cloned, PHP will perform a shallow copy of all of the
+     * object's properties. Any properties that are references to other variables
+     * will remain references.
+     *
      */
     public function __clone()
     {
         $this->parseQuery = clone $this->parseQuery;
     }
 
-
     /**
      * Assign custom master key.
      *
-     * @param string $value
-     * A string that determine the custom master key.
+     * @param boolean|null $value
+     * A boolean that determine whether to use the master key
+     * (`true`) or not (`false`).
      *
      * @return $this
      */
@@ -160,7 +152,6 @@ class Query
 
         return $this;
     }
-
 
     /**
      * Get the full class name of current query.
@@ -172,13 +163,11 @@ class Query
         return $this->fullClassName;
     }
 
-
     /**
      * Conditional query (or query).
      *
-     * Pass `Query`, `ParseQuery` or `Closure`, as params or
-     * in an array. If `Closure` is passed, a new `Query` will
-     * be passed as parameter.
+     * Pass `Query`, `ParseQuery` or `Closure`, as params or in an array. If `Closure`
+     * is passed, a new `Query` will be passed as parameter.
      *
      * First element must be an instance of `Query`.
      *
@@ -196,7 +185,6 @@ class Query
 
         return static::orQueries($queries);
     }
-
 
     /**
      * Conditional queries (or queries).
@@ -249,7 +237,6 @@ class Query
         return $orQuery;
     }
 
-
     /**
      * A basic `whereIn` clause for the query.
      *
@@ -265,7 +252,6 @@ class Query
     {
         return $this->containedIn($key, $values);
     }
-
 
     /**
      * A basic `containedIn` clause for the query.
@@ -298,7 +284,6 @@ class Query
         return $this;
     }
 
-
     /**
      * A basic `whereNotFound` clause to the query.
      *
@@ -313,7 +298,6 @@ class Query
 
         return $this;
     }
-
 
     /**
      * Find a record by its object id or throw an exception.
@@ -333,7 +317,6 @@ class Query
 
         return $this->firstOrFail($selectKeys);
     }
-
 
     /**
      * Get the first record that matches the query or throw
@@ -360,7 +343,6 @@ class Query
         return $first;
     }
 
-
     /**
      * Get the first record that matches the query.
      *
@@ -384,7 +366,6 @@ class Query
         endif;
     }
 
-
     /**
      * Create model from parse object.
      *
@@ -399,7 +380,6 @@ class Query
 
         return new $className($data, $this->useMasterKey);
     }
-
 
     /**
      * Find a record by its object id or return a new instance.
@@ -425,7 +405,6 @@ class Query
         return $record;
     }
 
-
     /**
      * Find a record by its object id.
      *
@@ -443,7 +422,6 @@ class Query
 
         return $this->first($selectKeys);
     }
-
 
     /**
      * Get the first record that matches the query or create
@@ -464,7 +442,6 @@ class Query
 
         return $record;
     }
-
 
     /**
      * Get the first record that matches the query
@@ -487,7 +464,6 @@ class Query
 
         return new $class($data, $this->useMasterKey);
     }
-
 
     /**
      * A basic `where` clause to the query.
@@ -538,7 +514,6 @@ class Query
         return $this;
     }
 
-
     /**
      * Executes the query and returns its results.
      *
@@ -555,7 +530,6 @@ class Query
 
         return $this->createModels($this->parseQuery->find($this->useMasterKey));
     }
-
 
     /**
      * Create multiple models.
@@ -576,7 +550,6 @@ class Query
         return new Collection($models);
     }
 
-
     /**
      * A basic `matchesQuery` clause for the query.
      *
@@ -595,7 +568,6 @@ class Query
         return $this;
     }
 
-
     /**
      * Parse query from `Query`.
      *
@@ -608,7 +580,6 @@ class Query
     {
         return $query instanceof self ? $query->parseQuery : $query;
     }
-
 
     /**
      * A basic `doesNotMatchQuery` clause for the query.
@@ -629,7 +600,6 @@ class Query
 
         return $this;
     }
-
 
     /**
      * A basic `matchesKeyInQuery` clause for the query.
@@ -654,7 +624,6 @@ class Query
         return $this;
     }
 
-
     /**
      * A basic `doesNotMatchKeyInQuery` clause for the query.
      *
@@ -677,7 +646,6 @@ class Query
 
         return $this;
     }
-
 
     /**
      * A basic `orderBy` clause for the query.
@@ -702,7 +670,6 @@ class Query
         return $this;
     }
 
-
     /**
      * Add a basic `count` clause for the query.
      *
@@ -712,7 +679,6 @@ class Query
     {
         return $this->parseQuery->count($this->useMasterKey);
     }
-
 
     /**
      * Alias for `ParseQuery`'s includeKey.
@@ -734,7 +700,6 @@ class Query
 
         return $this;
     }
-
 
     /**
      * Get the parse query.

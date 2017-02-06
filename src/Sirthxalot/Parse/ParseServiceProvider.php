@@ -34,7 +34,6 @@ class ParseServiceProvider extends ServiceProvider
         $this->setupParse();
     }
 
-
     /**
      * Provide the service configuration.
      *
@@ -48,7 +47,6 @@ class ParseServiceProvider extends ServiceProvider
 
         $this->mergeConfigFrom($source, 'parse');
     }
-
 
     /**
      * Setup the Parse driver.
@@ -74,7 +72,6 @@ class ParseServiceProvider extends ServiceProvider
         });
     }
 
-
     /**
      * Register any services.
      *
@@ -84,7 +81,6 @@ class ParseServiceProvider extends ServiceProvider
     {
         //
     }
-
 
     /**
      * Register any commands.
@@ -96,7 +92,6 @@ class ParseServiceProvider extends ServiceProvider
         $this->commands('command.parse.model.make');
     }
 
-
     /**
      * Register the model make command.
      */
@@ -106,7 +101,6 @@ class ParseServiceProvider extends ServiceProvider
             return new ModelMakeCommand($app['files']);
         });
     }
-
 
     /**
      * Get the services provided by this provider.

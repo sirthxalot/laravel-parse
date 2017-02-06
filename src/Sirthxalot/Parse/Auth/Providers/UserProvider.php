@@ -25,7 +25,6 @@ class UserProvider extends BaseProvider
         return $this->retrieveByUsername($credentials);
     }
 
-
     /**
      * Validate a user against the given credentials.
      *

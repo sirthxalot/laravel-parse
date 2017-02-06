@@ -18,35 +18,34 @@ use Parse\ParseStorageInterface;
 class SessionStorage implements ParseStorageInterface
 {
     /**
-     * Sets a key-value pair in session storage.
+     * Get all key-value pairs from session storage.
      *
-     * @param string $key
-     * A string that determine the key used for the storage.
-     *
-     * @param mixed $value
-     * A mixed value that determine the value used to store.
-     *
-     * @return null
+     * @return array
      */
-    public function set($key, $value)
+    public function all()
     {
-        Session([$key => $value]);
+        return Session::all();
     }
-
 
     /**
-     * Remove a key from session storage.
+     * Clear all key-value pairs from session storage.
      *
-     * @param string $key
-     * A string that determine the key used for the storage.
-     *
-     * @return null
+     * @return Session
      */
-    public function remove($key)
+    public function clear()
     {
-        Session::remove($key);
+        $this->flush();
     }
 
+    /**
+     * Flushes everything out from the session storage.
+     *
+     * @return mixed
+     */
+    public function flush()
+    {
+        return Session::flush();
+    }
 
     /**
      * Gets the value for a key from session storage.
@@ -54,51 +53,12 @@ class SessionStorage implements ParseStorageInterface
      * @param string $key
      * A string that determine the key used for the storage.
      *
-     * @return mixed
+     * @return Session
      */
     public function get($key)
     {
         return Session::get($key);
     }
-
-
-    /**
-     * Clear all values in session storage.
-     *
-     * @return null
-     */
-    public function clear()
-    {
-        Sessions::clear();
-    }
-
-
-    /**
-     * Save the data, if necessary.
-     *
-     * This would be a no-op when using the `$_SESSION`
-     * implementation, but could be used for saving to
-     * file or database as an action instead of on every
-     * set.
-     *
-     * @return null
-     */
-    public function save()
-    {
-        Session::save();
-    }
-
-
-    /**
-     * Get all keys from session storage.
-     *
-     * @return array
-     */
-    public function getKeys()
-    {
-        return array_keys($this->getAll());
-    }
-
 
     /**
      * Get all key-value pairs from session storage.
@@ -107,6 +67,59 @@ class SessionStorage implements ParseStorageInterface
      */
     public function getAll()
     {
-        return Session::all();
+        $this->all();
+    }
+
+    /**
+     * Get all keys from session storage.
+     *
+     * @return array
+     */
+    public function getKeys()
+    {
+        return array_keys($this->all());
+    }
+
+    /**
+     * Remove a key from session storage.
+     *
+     * @param string $key
+     * A string that determine the key used for removing from
+     * storage.
+     *
+     * @return Session
+     */
+    public function remove($key)
+    {
+        return Session::remove($key);
+    }
+
+    /**
+     * Save the data, if necessary.
+     *
+     * This would be a no-op when using the `$_SESSION` implementation, but could
+     * be used for saving to file or database as an action instead of on every set.
+     *
+     * @return Session
+     */
+    public function save()
+    {
+        return Session::save();
+    }
+
+    /**
+     * Sets a key-value pair in session storage.
+     *
+     * @param string $key
+     * A string that determine the key used for the storage.
+     *
+     * @param mixed $value
+     * A mixed value that determine the value used to store.
+     *
+     * @return Session
+     */
+    public function set($key, $value)
+    {
+        return Session([$key => $value]);
     }
 }

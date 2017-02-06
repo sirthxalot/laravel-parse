@@ -24,7 +24,6 @@ class UserModel extends BaseUserModel implements AuthenticatableContract, Author
 {
     use Authenticatable, Authorizable, CanResetPassword;
 
-
     /**
      * Get the object key (id) name.
      *
@@ -35,7 +34,6 @@ class UserModel extends BaseUserModel implements AuthenticatableContract, Author
         return 'objectId';
     }
 
-
     /**
      * Get the object key (id).
      *
@@ -45,7 +43,6 @@ class UserModel extends BaseUserModel implements AuthenticatableContract, Author
     {
         return $this->id();
     }
-
 
     /**
      * Get the token name used for `remember me` token.
