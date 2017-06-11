@@ -49,19 +49,7 @@ Open `config/app.php`, and add a new item to the `providers` array:
 
 This will bootstrap the Laravel-Parse package into your Laravel application.
 
-### Step-03: Publish Configuration (Optional)
-
-You can pull the default configuration file into your application by executing
-the following artisan command:
-
-```powerShell
-php artisan vendor:publish --provider="Sirthxalot\Parse\ParseServiceProvider"
-```
-
-This will pull the default configuration (`config/parse.php`), into
-your application.
-
-### Step-04: Setup Parse Driver
+### Step-03: Setup Parse Driver
 
 You can set your credentials and configuration whether in the `config/parse.php`, or in your `.env` file:
 
