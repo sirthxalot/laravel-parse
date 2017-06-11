@@ -51,7 +51,7 @@ This will bootstrap the Laravel-Parse package into your Laravel application.
 
 ### Step-03: Setup Parse Driver
 
-You can set your credentials and configuration whether in the `config/parse.php`, or in your `.env` file:
+You can set your credentials and configuration in your `.env` file:
 
 ```yaml
 PARSE_APP_ID="your-app-id"
