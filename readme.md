@@ -66,10 +66,10 @@ You will find your credentials within your **Parse dashboard**.
 
 ## Need Further Help
 
-Please take a look at the [official documentation](https://sirthxalot.gitbooks.io/laravel-parse/content/),
-in order to receive further information about the Laravel-Parse.
-It will guide you through all the basics and is the defacto educational resource
-specifically for any beginner.
+Please take a look at the [official documentation](https://sta-books.gitbooks.io/laravel-parse/content/),
+in order to receive further information about the Laravel-Parse. It will guide 
+you through all the basics and is the defacto educational resource specifically 
+for any beginner.
 
 If you have a question, want to report any bug or have any other issue, than please
 do not hesitate to use the [issue tracker](https://github.com/sirthxalot/laravel-parse/issues).
