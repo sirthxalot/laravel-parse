@@ -2,7 +2,7 @@ Laravel-Parse
 ================================================================================
 
 [![Chat](https://img.shields.io/badge/chat-join-orange.svg)](https://sirthxalot.slack.com/messages/laravel-parse/)
-[![Read the doc](https://img.shields.io/badge/documentation-read-blue.svg)](https://www.gitbook.com/read/book/sirthxalot/laravel-parse)
+[![Read the doc](https://img.shields.io/badge/documentation-read-blue.svg)](https://sta-books.gitbooks.io/laravel-parse/content/)
 [![GitHub issues](https://img.shields.io/github/issues/sirthxalot/laravel-parse.svg)](https://github.com/sirthxalot/laravel-parse/issues)
 [![GitHub forks](https://img.shields.io/github/forks/sirthxalot/laravel-parse.svg?style=social&label=Fork&maxAge=2592000)](https://github.com/sirthxalot/laravel-parse)
 [![GitHub stars](https://img.shields.io/github/stars/sirthxalot/laravel-parse.svg?style=social&label=Star&maxAge=2592000)](https://github.com/sirthxalot/laravel-parse)
