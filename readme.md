@@ -2,7 +2,7 @@ Laravel-Parse
 ================================================================================
 
 [![Chat](https://img.shields.io/badge/chat-join-orange.svg)](https://sirthxalot.slack.com/messages/laravel-parse/)
-[![Read the doc](https://img.shields.io/badge/documentation-read-blue.svg)](https://sta-books.gitbooks.io/laravel-parse/content/)
+[![Read the docs](https://readthedocs.org/projects/laravel-parse/badge/?version=latest)](http://laravel-parse.readthedocs.io/en/latest/)
 [![GitHub issues](https://img.shields.io/github/issues/sirthxalot/laravel-parse.svg)](https://github.com/sirthxalot/laravel-parse/issues)
 [![GitHub forks](https://img.shields.io/github/forks/sirthxalot/laravel-parse.svg?style=social&label=Fork&maxAge=2592000)](https://github.com/sirthxalot/laravel-parse)
 [![GitHub stars](https://img.shields.io/github/stars/sirthxalot/laravel-parse.svg?style=social&label=Star&maxAge=2592000)](https://github.com/sirthxalot/laravel-parse)
@@ -13,7 +13,7 @@ application. It takes the yawn out of writing queries, by using the good old Elo
 and Collection features. Couple your application with Parse and enjoy all the goodies,
 like the authentication service and many more ready to use straight out of box.
 
-![Laravel 5.3 Support](https://cloud.githubusercontent.com/assets/6856248/22228307/97afab86-e1d0-11e6-887c-ed90984d3e5c.png)
+![Laravel 5.3 Support](http://laravel-parse.readthedocs.io/en/latest/_images/laravel-parse.png)
 
 
 ## Features
